@@ -5,491 +5,265 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHACHA ASLAM SEARCH</title>
     <style>
-        /* Ultra-Fast Minimal CSS */
-        :root {
-            --primary: #1a237e;
-            --secondary: #283593;
-            --light: #f8f9fa;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--light);
-            padding: 20px;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            opacity: 0.9;
-            font-size: 16px;
-        }
-        
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .stat-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .stat-number {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            color: #666;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Search Box */
-        .search-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .search-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-        
-        #searchInput {
-            flex: 1;
-            min-width: 300px;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        #searchInput:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        #searchColumn {
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            background: white;
-            min-width: 200px;
-        }
-        
-        .btn {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: var(--secondary);
-        }
-        
-        .btn-secondary {
-            background: #6c757d;
-            color: white;
-        }
-        
-        /* Results Info */
-        .results-info {
-            background: #e3f2fd;
-            padding: 12px 20px;
-            border-radius: 6px;
-            margin-top: 10px;
-            color: #1565c0;
-            font-weight: 500;
-        }
-        
-        /* Table */
-        .table-wrapper {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            margin-top: 20px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        thead {
-            background: var(--primary);
-            color: white;
-            position: sticky;
-            top: 0;
-        }
-        
-        th {
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        tbody tr:hover {
-            background: #f8f9fa;
-        }
-        
-        .highlight {
-            background: #fff9c4;
-            padding: 2px;
-            border-radius: 2px;
-        }
-        
-        /* Loading */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 40px;
-        }
-        
-        .loading.active {
-            display: block;
-        }
-        
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* No Results */
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            display: none;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #666;
-            font-size: 14px;
-        }
-        
-        /* Responsive */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f7fa; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #1a237e, #283593); color: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
+        h1 { font-size: 28px; margin-bottom: 10px; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .stat-card { background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .stat-number { font-size: 32px; font-weight: bold; color: #1a237e; }
+        .search-box { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .search-row { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+        input[type="text"] { flex: 1; min-width: 300px; padding: 12px 15px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; }
+        select { padding: 12px 15px; border: 2px solid #ddd; border-radius: 6px; background: white; min-width: 200px; }
+        button { padding: 12px 25px; background: #1a237e; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; }
+        button:hover { background: #283593; }
+        .clear-btn { background: #757575; }
+        .search-options { margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 6px; }
+        .options-row { display: flex; gap: 20px; flex-wrap: wrap; }
+        .option { display: flex; align-items: center; gap: 8px; }
+        .table-container { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #3f51b5; color: white; padding: 15px; text-align: left; position: sticky; top: 0; }
+        td { padding: 15px; border-bottom: 1px solid #eee; }
+        tr:hover { background: #f5f5f5; }
+        .loading { display: none; text-align: center; padding: 40px; }
+        .loading.active { display: block; }
+        .spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #1a237e; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .no-results { text-align: center; padding: 60px 20px; display: none; }
+        .highlight { background: yellow; padding: 2px; border-radius: 2px; font-weight: bold; }
         @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            
-            .search-row {
-                flex-direction: column;
-            }
-            
-            #searchInput, #searchColumn, .btn {
-                width: 100%;
-                min-width: unset;
-            }
-            
-            th, td {
-                padding: 10px;
-                font-size: 14px;
-            }
-            
-            .stat-number {
-                font-size: 28px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            
-            header {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
+            .search-row { flex-direction: column; }
+            input[type="text"], select, button { width: 100%; min-width: unset; }
+            th, td { padding: 10px; font-size: 14px; }
+            .options-row { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header>
+        <div class="header">
             <h1>CHACHA ASLAM SEARCH</h1>
-            <div class="subtitle">Search 34,000+ records from CA_PROJECT</div>
-        </header>
+            <p>Search 34,000+ records with exact matching</p>
+        </div>
         
-        <!-- Statistics -->
         <div class="stats">
             <div class="stat-card">
                 <div class="stat-number" id="totalRecords">0</div>
-                <div class="stat-label">Total Records</div>
+                <div>Total Records</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" id="searchCount">0</div>
-                <div class="stat-label">Search Results</div>
+                <div>Search Results</div>
             </div>
         </div>
         
-        <!-- Search Container -->
-        <div class="search-container">
+        <div class="search-box">
             <div class="search-row">
-                <input type="text" 
-                       id="searchInput" 
-                       placeholder="Search by Application No, Name, CHAK, or Clerk..."
-                       autocomplete="off">
+                <input type="text" id="searchInput" placeholder="Search by Application No, Name, CHAK, or Clerk...">
                 <select id="searchColumn">
                     <option value="all">All Columns</option>
                 </select>
-                <button class="btn btn-primary" id="searchBtn">Search</button>
-                <button class="btn btn-secondary" id="clearBtn">Clear</button>
+                <button id="searchBtn">Search</button>
+                <button id="clearBtn" class="clear-btn">Clear</button>
             </div>
             
-            <div class="results-info" id="resultsInfo">
+            <div class="search-options">
+                <div class="options-row">
+                    <div class="option">
+                        <input type="checkbox" id="exactMatch" checked>
+                        <label for="exactMatch"><strong>Exact Match</strong> (only "41", not "1412")</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="wholeWord" checked>
+                        <label for="wholeWord"><strong>Whole Word</strong> (match complete words)</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="caseSensitive">
+                        <label for="caseSensitive"><strong>Case Sensitive</strong></label>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 15px; color: #666; font-weight: bold;">
                 Found <span id="resultsCount">0</span> record(s)
             </div>
         </div>
         
-        <!-- Loading Indicator -->
         <div class="loading" id="loading">
             <div class="spinner"></div>
-            <div>Loading data from CA_PROJECT sheet...</div>
+            <div>Loading data...</div>
         </div>
         
-        <!-- Table -->
-        <div class="table-wrapper">
+        <div class="table-container">
             <table id="resultsTable">
-                <thead>
-                    <!-- Headers will be loaded here -->
-                </thead>
-                <tbody id="tableBody">
-                    <!-- Data will be loaded here -->
-                </tbody>
+                <thead></thead>
+                <tbody id="tableBody"></tbody>
             </table>
         </div>
         
-        <!-- No Results -->
         <div class="no-results" id="noResults">
             <h3>No Records Found</h3>
             <p>Try a different search term</p>
         </div>
-        
-        <!-- Footer -->
-        <footer>
-            <div>Hosted on GitHub Pages</div>
-            <div>Data source: Google Sheets</div>
-        </footer>
     </div>
 
     <script>
-        // Web App URL
         const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbw_n6OI0kd4z19Hvn2rpUp7DsyAPde2jbQDM-qJzBk_wJhp9lcSOgnh42aD8DJrRITjNw/exec';
-        
-        // State
         let allData = [];
-        let filteredData = [];
         let columns = [];
-        let searchTimeout = null;
         
-        // Initialize
         async function init() {
+            showLoading();
+            
             try {
-                showLoading();
+                // Load columns
+                const colsRes = await fetch(WEB_APP_URL + '?action=getColumns');
+                const colsData = await colsRes.json();
+                columns = colsData.columns.filter(c => !c.toLowerCase().includes('timestamp'));
                 
-                // Load columns and initial data in parallel
-                await Promise.all([
-                    loadColumns(),
-                    loadAllData()
-                ]);
+                // Update dropdown
+                const select = document.getElementById('searchColumn');
+                select.innerHTML = '<option value="all">All Columns</option>';
+                columns.forEach(col => {
+                    const option = document.createElement('option');
+                    option.value = col;
+                    option.textContent = col;
+                    select.appendChild(option);
+                });
                 
-                setupEventListeners();
-                updateRowCounter();
+                // Update table headers
+                const thead = document.querySelector('#resultsTable thead');
+                thead.innerHTML = '<tr>' + columns.map(c => `<th>${c}</th>`).join('') + '</tr>';
                 
-                // Hide loading
-                setTimeout(hideLoading, 500);
+                // Load initial data
+                await loadAllData();
                 
             } catch (error) {
-                console.error('Initialization error:', error);
-                showError('Failed to load. Please refresh.');
+                console.error('Error:', error);
+                alert('Failed to load data');
+            } finally {
                 hideLoading();
             }
         }
         
-        // Load all data once
         async function loadAllData() {
             try {
-                const response = await fetch(WEB_APP_URL + '?action=getAll');
-                const data = await response.json();
+                const res = await fetch(WEB_APP_URL + '?action=getAll');
+                const data = await res.json();
+                allData = data.data || [];
                 
-                if (data.success && data.data) {
-                    allData = data.data;
-                    filteredData = allData;
-                    
-                    // Display first 100 records
-                    displayResults(filteredData.slice(0, 100));
-                    updateStats();
-                    
-                    console.log(`Loaded ${allData.length} records`);
-                }
+                // Display all data initially
+                performSearch();
+                
             } catch (error) {
                 console.error('Error loading data:', error);
-                throw error;
             }
         }
         
-        // Load columns
-        async function loadColumns() {
-            try {
-                const response = await fetch(WEB_APP_URL + '?action=getColumns');
-                const data = await response.json();
-                
-                if (data.success && data.columns) {
-                    // Filter out timestamp columns
-                    columns = data.columns.filter(col => 
-                        !col.toLowerCase().includes('timestamp') && 
-                        !col.toLowerCase().includes('date')
-                    );
-                    
-                    updateColumnDropdown();
-                    updateTableHeaders();
-                }
-            } catch (error) {
-                console.error('Error loading columns:', error);
-            }
-        }
-        
-        // Client-side search (FAST!)
         function performSearch() {
-            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+            const searchTerm = document.getElementById('searchInput').value.trim();
             const column = document.getElementById('searchColumn').value;
+            const exactMatch = document.getElementById('exactMatch').checked;
+            const wholeWord = document.getElementById('wholeWord').checked;
+            const caseSensitive = document.getElementById('caseSensitive').checked;
             
             if (!searchTerm) {
-                filteredData = allData;
-            } else {
-                if (column === 'all') {
-                    // Search all columns
-                    filteredData = allData.filter(record => {
-                        for (let col of columns) {
-                            const value = String(record[col] || '').toLowerCase();
-                            if (value.includes(searchTerm)) {
-                                return true;
-                            }
-                        }
-                        return false;
-                    });
-                } else {
-                    // Search specific column
-                    filteredData = allData.filter(record => {
-                        const value = String(record[column] || '').toLowerCase();
-                        return value.includes(searchTerm);
-                    });
-                }
-            }
-            
-            // Display first 100 results
-            displayResults(filteredData.slice(0, 100));
-            updateStats();
-            updateRowCounter();
-        }
-        
-        // Display results
-        function displayResults(data) {
-            const tbody = document.getElementById('tableBody');
-            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
-            
-            if (!data || data.length === 0) {
-                tbody.innerHTML = '';
-                document.getElementById('noResults').style.display = 'block';
-                document.querySelector('.table-wrapper').style.display = 'none';
+                displayResults(allData);
+                updateCounts(allData.length);
                 return;
             }
             
-            document.getElementById('noResults').style.display = 'none';
-            document.querySelector('.table-wrapper').style.display = 'block';
+            // Filter data based on search options
+            let results = allData.filter(record => {
+                if (column === 'all') {
+                    // Search in all columns
+                    for (let col of columns) {
+                        const value = String(record[col] || '');
+                        if (matchValue(value, searchTerm, exactMatch, wholeWord, caseSensitive)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                } else {
+                    // Search in specific column
+                    const value = String(record[column] || '');
+                    return matchValue(value, searchTerm, exactMatch, wholeWord, caseSensitive);
+                }
+            });
             
-            // Build table rows
+            displayResults(results);
+            updateCounts(results.length);
+        }
+        
+        function matchValue(value, searchTerm, exactMatch, wholeWord, caseSensitive) {
+            let searchText = caseSensitive ? searchTerm : searchTerm.toLowerCase();
+            let cellValue = caseSensitive ? value : value.toLowerCase();
+            
+            if (exactMatch) {
+                // EXACT MATCH: "41" only matches "41", not "1412"
+                // Split by spaces and check each word
+                const words = cellValue.split(/\s+/);
+                return words.some(word => word === searchText);
+            } else if (wholeWord) {
+                // WHOLE WORD MATCH: "41" matches "41 DNB" but not "1412"
+                // Using word boundaries in regex
+                const escapedSearch = searchText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`\\b${escapedSearch}\\b`, caseSensitive ? '' : 'i');
+                return regex.test(value); // Use original value for regex
+            } else {
+                // SUBSTRING MATCH (original behavior): "41" matches anything with "41"
+                return cellValue.includes(searchText);
+            }
+        }
+        
+        function displayResults(data) {
+            const tbody = document.getElementById('tableBody');
+            const searchTerm = document.getElementById('searchInput').value;
+            const exactMatch = document.getElementById('exactMatch').checked;
+            const wholeWord = document.getElementById('wholeWord').checked;
+            const caseSensitive = document.getElementById('caseSensitive').checked;
+            
+            if (!data.length) {
+                document.querySelector('.table-container').style.display = 'none';
+                document.getElementById('noResults').style.display = 'block';
+                return;
+            }
+            
+            document.querySelector('.table-container').style.display = 'block';
+            document.getElementById('noResults').style.display = 'none';
+            
             let html = '';
-            data.forEach(record => {
+            data.forEach(row => {
                 html += '<tr>';
                 columns.forEach(col => {
-                    let value = record[col] || '';
-                    // Highlight search term
-                    if (searchTerm && value.toLowerCase().includes(searchTerm)) {
-                        const regex = new RegExp(`(${searchTerm})`, 'gi');
-                        value = value.replace(regex, '<span class="highlight">$1</span>');
+                    let value = row[col] || '';
+                    
+                    // Highlight the search term if found
+                    if (searchTerm) {
+                        if (exactMatch) {
+                            // Highlight exact word matches
+                            const words = value.split(/\s+/);
+                            value = words.map(word => {
+                                const isMatch = caseSensitive 
+                                    ? word === searchTerm
+                                    : word.toLowerCase() === searchTerm.toLowerCase();
+                                return isMatch ? `<span class="highlight">${word}</span>` : word;
+                            }).join(' ');
+                        } else if (wholeWord) {
+                            // Highlight whole word matches
+                            const escapedSearch = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                            const regex = new RegExp(`\\b${escapedSearch}\\b`, caseSensitive ? 'g' : 'gi');
+                            value = value.replace(regex, match => `<span class="highlight">${match}</span>`);
+                        } else {
+                            // Highlight substring matches
+                            const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), caseSensitive ? 'g' : 'gi');
+                            value = value.replace(regex, match => `<span class="highlight">${match}</span>`);
+                        }
                     }
+                    
                     html += `<td>${value}</td>`;
                 });
                 html += '</tr>';
@@ -498,132 +272,62 @@
             tbody.innerHTML = html;
         }
         
-        // Update statistics
-        function updateStats() {
-            document.getElementById('totalRecords').textContent = allData.length.toLocaleString();
-            document.getElementById('searchCount').textContent = filteredData.length.toLocaleString();
-            document.getElementById('resultsCount').textContent = filteredData.length.toLocaleString();
+        function updateCounts(count) {
+            document.getElementById('totalRecords').textContent = allData.length;
+            document.getElementById('searchCount').textContent = count;
+            document.getElementById('resultsCount').textContent = count;
         }
         
-        // Update column dropdown
-        function updateColumnDropdown() {
-            const select = document.getElementById('searchColumn');
-            select.innerHTML = '<option value="all">All Columns</option>';
-            
-            columns.forEach(col => {
-                const option = document.createElement('option');
-                option.value = col;
-                option.textContent = col;
-                select.appendChild(option);
-            });
-        }
-        
-        // Update table headers
-        function updateTableHeaders() {
-            const thead = document.querySelector('#resultsTable thead');
-            thead.innerHTML = '<tr>' + 
-                columns.map(col => `<th>${col}</th>`).join('') + 
-                '</tr>';
-        }
-        
-        // Update row counter
-        function updateRowCounter() {
-            console.log(`Total: ${allData.length}, Filtered: ${filteredData.length}`);
-        }
-        
-        // Show loading
         function showLoading() {
             document.getElementById('loading').classList.add('active');
-            document.querySelector('.table-wrapper').style.display = 'none';
+            document.querySelector('.table-container').style.display = 'none';
         }
         
-        // Hide loading
         function hideLoading() {
             document.getElementById('loading').classList.remove('active');
         }
         
-        // Show error
-        function showError(message) {
-            const errorDiv = document.createElement('div');
-            errorDiv.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #ff5252;
-                color: white;
-                padding: 12px 20px;
-                border-radius: 6px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-                z-index: 1000;
-            `;
-            errorDiv.textContent = message;
-            document.body.appendChild(errorDiv);
-            
-            setTimeout(() => errorDiv.remove(), 5000);
-        }
+        // Event listeners
+        document.getElementById('searchBtn').addEventListener('click', performSearch);
         
-        // Setup event listeners
-        function setupEventListeners() {
-            // Search button
-            document.getElementById('searchBtn').addEventListener('click', performSearch);
-            
-            // Clear button
-            document.getElementById('clearBtn').addEventListener('click', () => {
-                document.getElementById('searchInput').value = '';
-                document.getElementById('searchColumn').value = 'all';
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchColumn').value = 'all';
+            document.getElementById('exactMatch').checked = true;
+            document.getElementById('wholeWord').checked = true;
+            document.getElementById('caseSensitive').checked = false;
+            performSearch();
+        });
+        
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
                 performSearch();
-            });
-            
-            // Enter key in search input
-            document.getElementById('searchInput').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-            
-            // Live search with debouncing
-            document.getElementById('searchInput').addEventListener('input', (e) => {
-                clearTimeout(searchTimeout);
-                const term = e.target.value.trim();
-                
-                if (term.length >= 2) {
-                    searchTimeout = setTimeout(performSearch, 300);
-                } else if (term.length === 0) {
-                    performSearch();
-                }
-            });
-            
-            // Load more on scroll
-            let scrollTimeout;
-            window.addEventListener('scroll', () => {
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {
-                    const scrollBottom = document.documentElement.scrollHeight - 
-                                         window.innerHeight - 
-                                         window.scrollY;
-                    
-                    if (scrollBottom < 500 && filteredData.length > 0) {
-                        // Load more data if we're near bottom
-                        const tbody = document.getElementById('tableBody');
-                        const currentRows = tbody.querySelectorAll('tr').length;
-                        
-                        if (currentRows < filteredData.length) {
-                            const moreData = filteredData.slice(currentRows, currentRows + 50);
-                            displayResults([...Array.from(tbody.querySelectorAll('tr')).map(row => {
-                                const cells = row.querySelectorAll('td');
-                                const record = {};
-                                columns.forEach((col, index) => {
-                                    record[col] = cells[index]?.textContent || '';
-                                });
-                                return record;
-                            }), ...moreData]);
-                        }
-                    }
-                }, 100);
-            });
-        }
+            }
+        });
         
-        // Initialize when page loads
+        // Live search with debouncing
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            const term = e.target.value.trim();
+            
+            if (term.length >= 1) {
+                searchTimeout = setTimeout(performSearch, 300);
+            } else if (term.length === 0) {
+                performSearch();
+            }
+        });
+        
+        // Update search when options change
+        ['exactMatch', 'wholeWord', 'caseSensitive'].forEach(id => {
+            document.getElementById(id).addEventListener('change', () => {
+                if (document.getElementById('searchInput').value.trim()) {
+                    performSearch();
+                }
+            });
+        });
+        
+        // Initialize
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
