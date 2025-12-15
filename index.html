@@ -3,332 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHACHA ASLAM SEARCH</title>
+    <title>Domain Trial Expired - Payment Required</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f5f7fa; padding: 20px; }
-        .container { max-width: 1400px; margin: 0 auto; }
-        .header { background: linear-gradient(135deg, #1a237e, #283593); color: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
-        h1 { font-size: 28px; margin-bottom: 10px; }
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .stat-card { background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .stat-number { font-size: 32px; font-weight: bold; color: #1a237e; }
-        .search-box { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .search-row { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
-        input[type="text"] { flex: 1; min-width: 300px; padding: 12px 15px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; }
-        select { padding: 12px 15px; border: 2px solid #ddd; border-radius: 6px; background: white; min-width: 200px; }
-        button { padding: 12px 25px; background: #1a237e; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; }
-        button:hover { background: #283593; }
-        .clear-btn { background: #757575; }
-        .search-options { margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 6px; }
-        .options-row { display: flex; gap: 20px; flex-wrap: wrap; }
-        .option { display: flex; align-items: center; gap: 8px; }
-        .table-container { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; }
-        th { background: #3f51b5; color: white; padding: 15px; text-align: left; position: sticky; top: 0; }
-        td { padding: 15px; border-bottom: 1px solid #eee; }
-        tr:hover { background: #f5f5f5; }
-        .loading { display: none; text-align: center; padding: 40px; }
-        .loading.active { display: block; }
-        .spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #1a237e; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .no-results { text-align: center; padding: 60px 20px; display: none; }
-        .highlight { background: yellow; padding: 2px; border-radius: 2px; font-weight: bold; }
-        @media (max-width: 768px) {
-            .search-row { flex-direction: column; }
-            input[type="text"], select, button { width: 100%; min-width: unset; }
-            th, td { padding: 10px; font-size: 14px; }
-            .options-row { flex-direction: column; gap: 10px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #d9534f 0%, #c9302c 100%);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 35px;
+        }
+        
+        .alert-box {
+            background-color: #fff3f3;
+            border-left: 5px solid #d9534f;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .alert-box h3 {
+            color: #d9534f;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .domain-details {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #eaeaea;
+        }
+        
+        .domain-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .domain-icon {
+            background-color: #e9ecef;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #495057;
+            font-size: 22px;
+        }
+        
+        .domain-text {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .trial-dates {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .date-box {
+            flex: 1;
+            min-width: 200px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #eaeaea;
+        }
+        
+        .date-label {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        
+        .date-value {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .expired {
+            color: #d9534f;
+        }
+        
+        .payment-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        
+        .payment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #d9534f;
+        }
+        
+        .dashboard-instruction {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            border: 2px dashed #ddd;
+            margin-top: 20px;
+        }
+        
+        .dashboard-icon {
+            font-size: 48px;
+            color: #d9534f;
+            margin-bottom: 20px;
+        }
+        
+        .dashboard-button {
+            background: linear-gradient(135deg, #d9534f 0%, #c9302c 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .dashboard-button:hover {
+            background: linear-gradient(135deg, #c9302c 0%, #b92c28 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(217, 83, 79, 0.3);
+        }
+        
+        .dashboard-button:active {
+            transform: translateY(0);
+        }
+        
+        .footer {
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .support {
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        
+        .support a {
+            color: #c9302c;
+            text-decoration: none;
+        }
+        
+        .support a:hover {
+            text-decoration: underline;
+        }
+        
+        .urgency-badge {
+            background-color: #d9534f;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .trial-note {
+            background-color: #e7f3ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #2a7de1;
+        }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .date-box {
+                min-width: 100%;
+            }
+            
+            .payment-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>CHACHA ASLAM SEARCH</h1>
-            <p>Search 34,000+ records with exact matching</p>
+            <h1><i class="fas fa-exclamation-triangle"></i> Domain Trial Period Expired</h1>
+            <p>Your 5-day free trial has ended. Please complete payment to continue using your domain.</p>
         </div>
         
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number" id="totalRecords">0</div>
-                <div>Total Records</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="searchCount">0</div>
-                <div>Search Results</div>
-            </div>
-        </div>
-        
-        <div class="search-box">
-            <div class="search-row">
-                <input type="text" id="searchInput" placeholder="Search by Application No, Name, CHAK, or Clerk...">
-                <select id="searchColumn">
-                    <option value="all">All Columns</option>
-                </select>
-                <button id="searchBtn">Search</button>
-                <button id="clearBtn" class="clear-btn">Clear</button>
+        <div class="content">
+            <div class="alert-box">
+                <h3><i class="fas fa-clock"></i> Immediate Action Required</h3>
+                <p>Your <strong>5-day free trial</strong> has ended. To avoid service interruption and potential domain release, please complete the payment through your dashboard.</p>
             </div>
             
-            <div class="search-options">
-                <div class="options-row">
-                    <div class="option">
-                        <input type="checkbox" id="exactMatch" checked>
-                        <label for="exactMatch"><strong>Exact Match</strong> (only "41", not "1412")</label>
+            <div class="domain-details">
+                <div class="domain-info">
+                    <div class="domain-icon">
+                        <i class="fas fa-globe"></i>
                     </div>
-                    <div class="option">
-                        <input type="checkbox" id="wholeWord" checked>
-                        <label for="wholeWord"><strong>Whole Word</strong> (match complete words)</label>
+                    <div class="domain-text">your-domain.com</div>
+                </div>
+                
+                <div class="trial-dates">
+                    <div class="date-box">
+                        <div class="date-label">Trial Started</div>
+                        <div class="date-value">October 10, 2023</div>
                     </div>
-                    <div class="option">
-                        <input type="checkbox" id="caseSensitive">
-                        <label for="caseSensitive"><strong>Case Sensitive</strong></label>
+                    
+                    <div class="date-box">
+                        <div class="date-label">Trial Expired</div>
+                        <div class="date-value expired">October 15, 2023</div>
                     </div>
+                    
+                    <div class="date-box">
+                        <div class="date-label">Days Overdue <span class="urgency-badge">1 DAY</span></div>
+                        <div class="date-value expired">October 16, 2023</div>
+                    </div>
+                </div>
+                
+                <div class="trial-note">
+                    <p><i class="fas fa-info-circle"></i> <strong>Note:</strong> You had access to a 5-day free trial period to evaluate our domain hosting services. This trial period has now ended.</p>
                 </div>
             </div>
             
-            <div style="margin-top: 15px; color: #666; font-weight: bold;">
-                Found <span id="resultsCount">0</span> record(s)
+            <div class="payment-section">
+                <div class="payment-header">
+                    <div>
+                        <h2>Payment Required</h2>
+                        <p>Complete your payment to renew your domain</p>
+                    </div>
+                    <div class="amount">$20.00</div>
+                </div>
+                
+                <div class="dashboard-instruction">
+                    <div class="dashboard-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Complete Payment Through Your Dashboard</h3>
+                    <p>To renew your domain service, please make the $20 payment through your account dashboard.</p>
+                    
+                    <p><strong>Instructions:</strong></p>
+                    <ol style="text-align: left; margin: 15px 0; padding-left: 20px;">
+                        <li>Log into your account dashboard</li>
+                        <li>Navigate to the "Billing" section</li>
+                        <li>Click on "Pending Invoices" or "Make Payment"</li>
+                        <li>Complete the $20 payment for domain renewal</li>
+                    </ol>
+                    
+                    <p style="margin-top: 15px;">Once payment is confirmed, your domain will be immediately reactivated.</p>
+                    
+                    <button class="dashboard-button" id="go-to-dashboard">
+                        <i class="fas fa-external-link-alt"></i> Go to Dashboard
+                    </button>
+                </div>
+            </div>
+            
+            <div class="support">
+                <p><i class="fas fa-question-circle"></i> Need help with payment? Contact our support team or call 1-800-123-4567</p>
             </div>
         </div>
         
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <div>Loading data...</div>
-        </div>
-        
-        <div class="table-container">
-            <table id="resultsTable">
-                <thead></thead>
-                <tbody id="tableBody"></tbody>
-            </table>
-        </div>
-        
-        <div class="no-results" id="noResults">
-            <h3>No Records Found</h3>
-            <p>Try a different search term</p>
+        <div class="footer">
+            <p>© 2023 DomainHost Pro. All rights reserved.</p>
+            <p>This is a service notification regarding your domain trial expiration.</p>
         </div>
     </div>
 
     <script>
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbw_n6OI0kd4z19Hvn2rpUp7DsyAPde2jbQDM-qJzBk_wJhp9lcSOgnh42aD8DJrRITjNw/exec';
-        let allData = [];
-        let columns = [];
-        
-        async function init() {
-            showLoading();
-            
-            try {
-                // Load columns
-                const colsRes = await fetch(WEB_APP_URL + '?action=getColumns');
-                const colsData = await colsRes.json();
-                columns = colsData.columns.filter(c => !c.toLowerCase().includes('timestamp'));
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dashboard button handler
+            document.getElementById('go-to-dashboard').addEventListener('click', function() {
+                const button = this;
+                const originalText = button.innerHTML;
                 
-                // Update dropdown
-                const select = document.getElementById('searchColumn');
-                select.innerHTML = '<option value="all">All Columns</option>';
-                columns.forEach(col => {
-                    const option = document.createElement('option');
-                    option.value = col;
-                    option.textContent = col;
-                    select.appendChild(option);
-                });
+                // Show processing state
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
+                button.disabled = true;
                 
-                // Update table headers
-                const thead = document.querySelector('#resultsTable thead');
-                thead.innerHTML = '<tr>' + columns.map(c => `<th>${c}</th>`).join('') + '</tr>';
-                
-                // Load initial data
-                await loadAllData();
-                
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Failed to load data');
-            } finally {
-                hideLoading();
-            }
-        }
-        
-        async function loadAllData() {
-            try {
-                const res = await fetch(WEB_APP_URL + '?action=getAll');
-                const data = await res.json();
-                allData = data.data || [];
-                
-                // Display all data initially
-                performSearch();
-                
-            } catch (error) {
-                console.error('Error loading data:', error);
-            }
-        }
-        
-        function performSearch() {
-            const searchTerm = document.getElementById('searchInput').value.trim();
-            const column = document.getElementById('searchColumn').value;
-            const exactMatch = document.getElementById('exactMatch').checked;
-            const wholeWord = document.getElementById('wholeWord').checked;
-            const caseSensitive = document.getElementById('caseSensitive').checked;
-            
-            if (!searchTerm) {
-                displayResults(allData);
-                updateCounts(allData.length);
-                return;
-            }
-            
-            // Filter data based on search options
-            let results = allData.filter(record => {
-                if (column === 'all') {
-                    // Search in all columns
-                    for (let col of columns) {
-                        const value = String(record[col] || '');
-                        if (matchValue(value, searchTerm, exactMatch, wholeWord, caseSensitive)) {
-                            return true;
-                        }
-                    }
-                    return false;
-                } else {
-                    // Search in specific column
-                    const value = String(record[column] || '');
-                    return matchValue(value, searchTerm, exactMatch, wholeWord, caseSensitive);
-                }
-            });
-            
-            displayResults(results);
-            updateCounts(results.length);
-        }
-        
-        function matchValue(value, searchTerm, exactMatch, wholeWord, caseSensitive) {
-            let searchText = caseSensitive ? searchTerm : searchTerm.toLowerCase();
-            let cellValue = caseSensitive ? value : value.toLowerCase();
-            
-            if (exactMatch) {
-                // EXACT MATCH: "41" only matches "41", not "1412"
-                // Split by spaces and check each word
-                const words = cellValue.split(/\s+/);
-                return words.some(word => word === searchText);
-            } else if (wholeWord) {
-                // WHOLE WORD MATCH: "41" matches "41 DNB" but not "1412"
-                // Using word boundaries in regex
-                const escapedSearch = searchText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                const regex = new RegExp(`\\b${escapedSearch}\\b`, caseSensitive ? '' : 'i');
-                return regex.test(value); // Use original value for regex
-            } else {
-                // SUBSTRING MATCH (original behavior): "41" matches anything with "41"
-                return cellValue.includes(searchText);
-            }
-        }
-        
-        function displayResults(data) {
-            const tbody = document.getElementById('tableBody');
-            const searchTerm = document.getElementById('searchInput').value;
-            const exactMatch = document.getElementById('exactMatch').checked;
-            const wholeWord = document.getElementById('wholeWord').checked;
-            const caseSensitive = document.getElementById('caseSensitive').checked;
-            
-            if (!data.length) {
-                document.querySelector('.table-container').style.display = 'none';
-                document.getElementById('noResults').style.display = 'block';
-                return;
-            }
-            
-            document.querySelector('.table-container').style.display = 'block';
-            document.getElementById('noResults').style.display = 'none';
-            
-            let html = '';
-            data.forEach(row => {
-                html += '<tr>';
-                columns.forEach(col => {
-                    let value = row[col] || '';
+                // Simulate redirection
+                setTimeout(() => {
+                    // Show success message
+                    button.innerHTML = '<i class="fas fa-check"></i> Redirected to Dashboard';
+                    button.style.background = 'linear-gradient(135deg, #5cb85c 0%, #4cae4c 100%)';
                     
-                    // Highlight the search term if found
-                    if (searchTerm) {
-                        if (exactMatch) {
-                            // Highlight exact word matches
-                            const words = value.split(/\s+/);
-                            value = words.map(word => {
-                                const isMatch = caseSensitive 
-                                    ? word === searchTerm
-                                    : word.toLowerCase() === searchTerm.toLowerCase();
-                                return isMatch ? `<span class="highlight">${word}</span>` : word;
-                            }).join(' ');
-                        } else if (wholeWord) {
-                            // Highlight whole word matches
-                            const escapedSearch = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                            const regex = new RegExp(`\\b${escapedSearch}\\b`, caseSensitive ? 'g' : 'gi');
-                            value = value.replace(regex, match => `<span class="highlight">${match}</span>`);
-                        } else {
-                            // Highlight substring matches
-                            const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), caseSensitive ? 'g' : 'gi');
-                            value = value.replace(regex, match => `<span class="highlight">${match}</span>`);
-                        }
-                    }
+                    // Update page to show success
+                    document.querySelector('.header').style.background = 'linear-gradient(135deg, #5cb85c 0%, #4cae4c 100%)';
+                    document.querySelector('.header h1').innerHTML = '<i class="fas fa-check-circle"></i> Payment Instructions Sent';
+                    document.querySelector('.header p').textContent = 'Please complete payment in your dashboard to renew your domain';
                     
-                    html += `<td>${value}</td>`;
-                });
-                html += '</tr>';
+                    // Update urgency badge
+                    document.querySelector('.urgency-badge').textContent = 'PENDING';
+                    document.querySelector('.urgency-badge').style.backgroundColor = '#f0ad4e';
+                    
+                    // Update amount color
+                    document.querySelector('.amount').style.color = '#f0ad4e';
+                    
+                    // Show success message
+                    const alertBox = document.querySelector('.alert-box');
+                    alertBox.style.borderLeftColor = '#f0ad4e';
+                    alertBox.style.backgroundColor = '#fffbf0';
+                    alertBox.innerHTML = `
+                        <h3 style="color: #f0ad4e;"><i class="fas fa-external-link-alt"></i> Complete Payment in Dashboard</h3>
+                        <p>Please log into your account dashboard and complete the $20.00 payment to renew your domain <strong>your-domain.com</strong>. Your domain will be reactivated immediately after payment confirmation.</p>
+                    `;
+                    
+                }, 1500);
             });
             
-            tbody.innerHTML = html;
-        }
-        
-        function updateCounts(count) {
-            document.getElementById('totalRecords').textContent = allData.length;
-            document.getElementById('searchCount').textContent = count;
-            document.getElementById('resultsCount').textContent = count;
-        }
-        
-        function showLoading() {
-            document.getElementById('loading').classList.add('active');
-            document.querySelector('.table-container').style.display = 'none';
-        }
-        
-        function hideLoading() {
-            document.getElementById('loading').classList.remove('active');
-        }
-        
-        // Event listeners
-        document.getElementById('searchBtn').addEventListener('click', performSearch);
-        
-        document.getElementById('clearBtn').addEventListener('click', () => {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('searchColumn').value = 'all';
-            document.getElementById('exactMatch').checked = true;
-            document.getElementById('wholeWord').checked = true;
-            document.getElementById('caseSensitive').checked = false;
-            performSearch();
-        });
-        
-        document.getElementById('searchInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                performSearch();
+            // Auto-update the overdue days counter
+            function updateOverdueCounter() {
+                const badge = document.querySelector('.urgency-badge');
+                let days = 1;
+                
+                // For demo purposes, we'll increment the days every 10 seconds
+                setInterval(() => {
+                    days++;
+                    badge.textContent = days + " DAY" + (days > 1 ? "S" : "");
+                }, 10000); // 10 seconds for demo
             }
-        });
-        
-        // Live search with debouncing
-        let searchTimeout;
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            clearTimeout(searchTimeout);
-            const term = e.target.value.trim();
             
-            if (term.length >= 1) {
-                searchTimeout = setTimeout(performSearch, 300);
-            } else if (term.length === 0) {
-                performSearch();
-            }
+            updateOverdueCounter();
         });
-        
-        // Update search when options change
-        ['exactMatch', 'wholeWord', 'caseSensitive'].forEach(id => {
-            document.getElementById(id).addEventListener('change', () => {
-                if (document.getElementById('searchInput').value.trim()) {
-                    performSearch();
-                }
-            });
-        });
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
